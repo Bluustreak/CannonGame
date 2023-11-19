@@ -26,4 +26,7 @@ class Cannon:
 
     def draw(self, screen):
         rect = pygame.Rect(self.x, self.y, self.x+20, self.y+5)
-        pygame.draw.rect(screen, "red", (self.x, self.y), 4)
+        pygame.draw.rect(screen, "red", (self.x, self.y), 5)
+
+    
+    #beep boop I'm making a change
