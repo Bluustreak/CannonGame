@@ -13,8 +13,19 @@ class Bullet:
         pygame.draw.circle(screen, "red", (self.x, self.y), 4)
 
     def update(self, timestep):
-        self.x = self.x + self.vx * timestep
-        self.y = self.y + self.vy * timestep
+        # the accelerations can be replaced by something more dynamic, 
+        # in the case of multiple acceleration sources like wind or other bodies
+        accx=0
+        accy=1
+
+        #the formula for displacement over time including acceleration
+        prevx = self.x
+        prevy = self.y
+        self.x = self.x + self.vx * timestep + 0.5*accx*timestep**2
+        self.y = self.y + self.vy * timestep + 0.5*accy*timestep**2
+        self.vx = (self.x-prevx)/timestep
+        self.vy = (self.y-prevy)/timestep
+        #print(self.x, self.y)
 
 
 class Cannon:
